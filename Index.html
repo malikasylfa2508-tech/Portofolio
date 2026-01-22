@@ -1,0 +1,1274 @@
+<!doctype html>
+<html lang="id">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bandung Cafe Guide - Rekomendasi Cafe Hits Gen Z</title>
+  <meta name="description" content="Temukan cafe-cafe hits favorit Gen Z di Bandung dengan suasana aesthetic dan menu instagrammable">
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+    
+    * {
+      font-family: 'Outfit', sans-serif;
+    }
+    
+    .parallax-bg {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .dark-mode {
+      background-color: #1a1410;
+      color: #f5f1ed;
+    }
+    
+    .dark-mode .card {
+      background-color: #2d2419;
+    }
+    
+    .dark-mode .navbar {
+      background-color: #2d2419;
+    }
+    
+    .glass-effect {
+      backdrop-filter: blur(10px);
+      background: rgba(250, 245, 235, 0.9);
+    }
+    
+    .dark-mode .glass-effect {
+      background: rgba(45, 36, 25, 0.9);
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #8B4513, #D2691E);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .chat-bubble {
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .rating-star {
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .rating-star:hover {
+      transform: scale(1.2);
+    }
+    
+    .counter-animation {
+      transition: all 0.5s ease;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="transition-colors duration-300"><!-- Navbar -->
+  <nav class="navbar fixed top-0 w-full z-50 glass-effect shadow-md transition-colors duration-300">
+   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+     <div class="flex items-center space-x-2"><i class="fas fa-coffee text-2xl" style="color: #8B4513;"></i> <span id="site-title" class="text-xl font-bold gradient-text">Bandung Cafe Guide</span>
+     </div>
+     <div class="hidden md:flex items-center space-x-6"><a href="#home" class="nav-link hover:text-amber-700 transition">Home</a> <a href="#cafes" class="nav-link hover:text-amber-700 transition">Cafes</a> <a href="#gallery" class="nav-link hover:text-amber-700 transition">Gallery</a> <a href="#testimonials" class="nav-link hover:text-amber-700 transition">Reviews</a> <a href="#contact" class="nav-link hover:text-amber-700 transition">Contact</a>
+     </div>
+     <div class="flex items-center space-x-4"><button id="lang-toggle" class="px-3 py-1 rounded-full border-2 border-amber-700 hover:bg-amber-700 hover:text-white transition text-sm font-medium"> <i class="fas fa-globe mr-1"></i> <span id="lang-text">ID</span> </button> <button id="dark-mode-toggle" class="p-2 rounded-full hover:bg-amber-100 dark:hover:bg-amber-900 transition"> <i class="fas fa-moon text-amber-700"></i> </button> <button id="mobile-menu" class="md:hidden p-2"> <i class="fas fa-bars text-xl text-amber-700"></i> </button>
+     </div>
+    </div><!-- Mobile Menu -->
+    <div id="mobile-menu-content" class="hidden md:hidden pb-4 space-y-2"><a href="#home" class="block py-2 hover:text-amber-700 transition">Home</a> <a href="#cafes" class="block py-2 hover:text-amber-700 transition">Cafes</a> <a href="#gallery" class="block py-2 hover:text-amber-700 transition">Gallery</a> <a href="#testimonials" class="block py-2 hover:text-amber-700 transition">Reviews</a> <a href="#contact" class="block py-2 hover:text-amber-700 transition">Contact</a>
+    </div>
+   </div>
+  </nav><!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg, #FAF5EB 0%, #E8DCC8 100%); margin-top: 64px;">
+   <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-20 left-10 w-64 h-64 bg-amber-700 rounded-full filter blur-3xl"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-orange-600 rounded-full filter blur-3xl"></div>
+   </div>
+   <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <div class="fade-in">
+     <h1 id="hero-tagline" class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 gradient-text">Temukan Cafe Hits Gen Z di Bandung</h1>
+     <p id="hero-subtitle" class="text-lg sm:text-xl md:text-2xl mb-8 text-amber-900">Dari Aesthetic Vibes hingga Menu Instagrammable</p><!-- Search Bar -->
+     <div class="max-w-2xl mx-auto mb-8">
+      <div class="relative"><input type="text" id="search-input" placeholder="Cari cafe favorit kamu..." class="w-full px-6 py-4 rounded-full shadow-lg text-amber-900 bg-white focus:outline-none focus:ring-4 focus:ring-amber-300"> <button class="absolute right-2 top-2 px-6 py-2 rounded-full text-white font-medium transition" style="background: #8B4513;"> <i class="fas fa-search"></i> </button>
+      </div>
+     </div><a href="#cafes"> <button id="cta-button" class="px-8 py-4 rounded-full text-white font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition" style="background: linear-gradient(135deg, #8B4513, #D2691E);"> Jelajahi Cafe </button> </a>
+    </div><!-- Statistics Counter -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto">
+     <div class="fade-in p-6 rounded-2xl bg-white shadow-lg">
+      <div class="text-3xl font-bold text-amber-700 counter-animation" data-target="50">
+       0
+      </div>
+      <div class="text-sm text-amber-900 mt-2" id="stat-cafes">
+       Cafe Terdaftar
+      </div>
+     </div>
+     <div class="fade-in p-6 rounded-2xl bg-white shadow-lg">
+      <div class="text-3xl font-bold text-amber-700 counter-animation" data-target="1200">
+       0
+      </div>
+      <div class="text-sm text-amber-900 mt-2" id="stat-reviews">
+       Review Pengunjung
+      </div>
+     </div>
+     <div class="fade-in p-6 rounded-2xl bg-white shadow-lg">
+      <div class="text-3xl font-bold text-amber-700 counter-animation" data-target="98">
+       0
+      </div>
+      <div class="text-sm text-amber-900 mt-2" id="stat-satisfaction">
+       Kepuasan (%)
+      </div>
+     </div>
+     <div class="fade-in p-6 rounded-2xl bg-white shadow-lg">
+      <div class="text-3xl font-bold text-amber-700 counter-animation" data-target="25">
+       0
+      </div>
+      <div class="text-sm text-amber-900 mt-2" id="stat-events">
+       Event Bulanan
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Filter Categories -->
+  <section class="py-12" style="background: #FAF5EB;">
+   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8 fade-in">
+     <h2 class="text-3xl font-bold gradient-text mb-4" id="filter-title">Filter Berdasarkan Kategori</h2>
+     <p class="text-amber-900" id="filter-subtitle">Temukan cafe sesuai preferensi kamu</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-3 mb-8"><button class="filter-btn active px-6 py-3 rounded-full font-medium transition shadow-md" data-category="all" style="background: #8B4513; color: white;"> Semua </button> <button class="filter-btn px-6 py-3 rounded-full font-medium transition bg-white text-amber-900 hover:bg-amber-100" data-category="aesthetic"> Aesthetic </button> <button class="filter-btn px-6 py-3 rounded-full font-medium transition bg-white text-amber-900 hover:bg-amber-100" data-category="rooftop"> Rooftop </button> <button class="filter-btn px-6 py-3 rounded-full font-medium transition bg-white text-amber-900 hover:bg-amber-100" data-category="cozy"> Cozy </button> <button class="filter-btn px-6 py-3 rounded-full font-medium transition bg-white text-amber-900 hover:bg-amber-100" data-category="instagrammable"> Instagrammable </button> <button class="filter-btn px-6 py-3 rounded-full font-medium transition bg-white text-amber-900 hover:bg-amber-100" data-category="livemusic"> Live Music </button>
+    </div>
+   </div>
+  </section><!-- Cafe Cards Section -->
+  <section id="cafes" class="py-16" style="background: #F5F1ED;">
+   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 fade-in">
+     <h2 class="text-4xl font-bold gradient-text mb-4" id="cafes-title">Cafe Rekomendasi Kami</h2>
+     <p class="text-lg text-amber-900" id="cafes-subtitle">Pilihan terbaik untuk nongkrong seru</p>
+    </div>
+    <div id="cafe-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Cafe cards will be generated here -->
+    </div>
+   </div>
+  </section><!-- Gallery Section -->
+  <section id="gallery" class="py-16" style="background: #FAF5EB;">
+   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 fade-in">
+     <h2 class="text-4xl font-bold gradient-text mb-4" id="gallery-title">Galeri Foto</h2>
+     <p class="text-lg text-amber-900" id="gallery-subtitle">Lihat suasana cafe-cafe kami</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+     <div class="gallery-item fade-in relative overflow-hidden rounded-xl aspect-square cursor-pointer group">
+      <div class="w-full h-full flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, #D2691E, #8B4513);">
+       ☕
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition flex items-center justify-center"><i class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+      </div>
+     </div>
+     <div class="gallery-item fade-in relative overflow-hidden rounded-xl aspect-square cursor-pointer group">
+      <div class="w-full h-full flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, #CD853F, #8B4513);">
+       🍰
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition flex items-center justify-center"><i class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+      </div>
+     </div>
+     <div class="gallery-item fade-in relative overflow-hidden rounded-xl aspect-square cursor-pointer group">
+      <div class="w-full h-full flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, #DEB887, #8B4513);">
+       🎨
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition flex items-center justify-center"><i class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+      </div>
+     </div>
+     <div class="gallery-item fade-in relative overflow-hidden rounded-xl aspect-square cursor-pointer group">
+      <div class="w-full h-full flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, #F4A460, #8B4513);">
+       🎵
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition flex items-center justify-center"><i class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+      </div>
+     </div>
+     <div class="gallery-item fade-in relative overflow-hidden rounded-xl aspect-square cursor-pointer group">
+      <div class="w-full h-full flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, #DAA520, #8B4513);">
+       🌿
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition flex items-center justify-center"><i class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+      </div>
+     </div>
+     <div class="gallery-item fade-in relative overflow-hidden rounded-xl aspect-square cursor-pointer group">
+      <div class="w-full h-full flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, #B8860B, #8B4513);">
+       📸
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition flex items-center justify-center"><i class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+      </div>
+     </div>
+     <div class="gallery-item fade-in relative overflow-hidden rounded-xl aspect-square cursor-pointer group">
+      <div class="w-full h-full flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, #D2691E, #8B4513);">
+       🍵
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition flex items-center justify-center"><i class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+      </div>
+     </div>
+     <div class="gallery-item fade-in relative overflow-hidden rounded-xl aspect-square cursor-pointer group">
+      <div class="w-full h-full flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, #CD853F, #8B4513);">
+       💫
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition flex items-center justify-center"><i class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Testimonials Carousel -->
+  <section id="testimonials" class="py-16" style="background: #F5F1ED;">
+   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 fade-in">
+     <h2 class="text-4xl font-bold gradient-text mb-4" id="testimonials-title">Apa Kata Mereka</h2>
+     <p class="text-lg text-amber-900" id="testimonials-subtitle">Review dari pengunjung setia kami</p>
+    </div>
+    <div class="max-w-4xl mx-auto">
+     <div id="testimonial-carousel" class="relative"><!-- Testimonials will be rendered here -->
+     </div>
+     <div class="flex justify-center mt-8 space-x-2" id="carousel-dots"><!-- Dots will be generated here -->
+     </div>
+    </div>
+   </div>
+  </section><!-- Reservation Form -->
+  <section id="reservation" class="py-16" style="background: #FAF5EB;">
+   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto">
+     <div class="text-center mb-8 fade-in">
+      <h2 class="text-4xl font-bold gradient-text mb-4" id="reservation-form-title">Reservasi Meja</h2>
+      <p class="text-lg text-amber-900" id="reservation-subtitle">Pastikan tempat kamu tersedia</p>
+     </div>
+     <form id="reservation-form" class="bg-white rounded-2xl shadow-xl p-8 space-y-6">
+      <div><label for="res-name" class="block text-sm font-medium text-amber-900 mb-2" id="label-name">Nama Lengkap</label> <input type="text" id="res-name" required class="w-full px-4 py-3 rounded-lg border-2 border-amber-200 focus:border-amber-500 focus:outline-none transition">
+      </div>
+      <div><label for="res-email" class="block text-sm font-medium text-amber-900 mb-2" id="label-email">Email</label> <input type="email" id="res-email" required class="w-full px-4 py-3 rounded-lg border-2 border-amber-200 focus:border-amber-500 focus:outline-none transition">
+      </div>
+      <div><label for="res-phone" class="block text-sm font-medium text-amber-900 mb-2" id="label-phone">Nomor Telepon</label> <input type="tel" id="res-phone" required class="w-full px-4 py-3 rounded-lg border-2 border-amber-200 focus:border-amber-500 focus:outline-none transition">
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+       <div><label for="res-date" class="block text-sm font-medium text-amber-900 mb-2" id="label-date">Tanggal</label> <input type="date" id="res-date" required class="w-full px-4 py-3 rounded-lg border-2 border-amber-200 focus:border-amber-500 focus:outline-none transition">
+       </div>
+       <div><label for="res-time" class="block text-sm font-medium text-amber-900 mb-2" id="label-time">Waktu</label> <input type="time" id="res-time" required class="w-full px-4 py-3 rounded-lg border-2 border-amber-200 focus:border-amber-500 focus:outline-none transition">
+       </div>
+      </div>
+      <div><label for="res-cafe" class="block text-sm font-medium text-amber-900 mb-2" id="label-cafe">Pilih Cafe</label> <select id="res-cafe" required class="w-full px-4 py-3 rounded-lg border-2 border-amber-200 focus:border-amber-500 focus:outline-none transition"> <option value="">Pilih Cafe...</option> </select>
+      </div>
+      <div><label for="res-guests" class="block text-sm font-medium text-amber-900 mb-2" id="label-guests">Jumlah Tamu</label> <input type="number" id="res-guests" min="1" max="20" required class="w-full px-4 py-3 rounded-lg border-2 border-amber-200 focus:border-amber-500 focus:outline-none transition">
+      </div>
+      <div><label for="res-notes" class="block text-sm font-medium text-amber-900 mb-2" id="label-notes">Catatan Khusus (Opsional)</label> <textarea id="res-notes" rows="3" class="w-full px-4 py-3 rounded-lg border-2 border-amber-200 focus:border-amber-500 focus:outline-none transition"></textarea>
+      </div><button type="submit" class="w-full py-4 rounded-lg text-white font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition" style="background: linear-gradient(135deg, #8B4513, #D2691E);"> <span id="btn-reserve">Kirim Reservasi</span> <i class="fas fa-paper-plane ml-2"></i> </button>
+      <div id="reservation-message" class="hidden text-center p-4 rounded-lg"></div>
+     </form>
+    </div>
+   </div>
+  </section><!-- Review & Rating Form -->
+  <section id="contact" class="py-16" style="background: #F5F1ED;">
+   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto">
+     <div class="text-center mb-8 fade-in">
+      <h2 class="text-4xl font-bold gradient-text mb-4" id="review-form-title">Bagikan Pengalaman Kamu</h2>
+      <p class="text-lg text-amber-900" id="review-subtitle">Review dan rating membantu kami berkembang</p>
+     </div>
+     <form id="review-form" class="bg-white rounded-2xl shadow-xl p-8 space-y-6">
+      <div><label for="review-cafe" class="block text-sm font-medium text-amber-900 mb-2" id="label-review-cafe">Cafe yang Dikunjungi</label> <select id="review-cafe" required class="w-full px-4 py-3 rounded-lg border-2 border-amber-200 focus:border-amber-500 focus:outline-none transition"> <option value="">Pilih Cafe...</option> </select>
+      </div>
+      <div><label for="review-name" class="block text-sm font-medium text-amber-900 mb-2" id="label-review-name">Nama Kamu</label> <input type="text" id="review-name" required class="w-full px-4 py-3 rounded-lg border-2 border-amber-200 focus:border-amber-500 focus:outline-none transition">
+      </div>
+      <div><label for="review-email" class="block text-sm font-medium text-amber-900 mb-2" id="label-review-email">Email</label> <input type="email" id="review-email" required class="w-full px-4 py-3 rounded-lg border-2 border-amber-200 focus:border-amber-500 focus:outline-none transition">
+      </div>
+      <div><label class="block text-sm font-medium text-amber-900 mb-3" id="label-rating">Rating</label>
+       <div class="flex justify-center space-x-2" id="rating-stars"><i class="fas fa-star rating-star text-4xl text-gray-300" data-rating="1"></i> <i class="fas fa-star rating-star text-4xl text-gray-300" data-rating="2"></i> <i class="fas fa-star rating-star text-4xl text-gray-300" data-rating="3"></i> <i class="fas fa-star rating-star text-4xl text-gray-300" data-rating="4"></i> <i class="fas fa-star rating-star text-4xl text-gray-300" data-rating="5"></i>
+       </div><input type="hidden" id="rating-value" required>
+      </div>
+      <div><label for="review-text" class="block text-sm font-medium text-amber-900 mb-2" id="label-review">Review Kamu</label> <textarea id="review-text" rows="5" required class="w-full px-4 py-3 rounded-lg border-2 border-amber-200 focus:border-amber-500 focus:outline-none transition" placeholder="Ceritakan pengalaman kamu..."></textarea>
+      </div><button type="submit" id="review-submit-btn" class="w-full py-4 rounded-lg text-white font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition" style="background: linear-gradient(135deg, #8B4513, #D2691E);"> <span id="btn-submit-review">Kirim Review</span> <i class="fas fa-heart ml-2"></i> </button>
+      <div id="review-message" class="hidden text-center p-4 rounded-lg"></div>
+     </form>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer class="py-12" style="background: #2D2419; color: #FAF5EB;">
+   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+     <div>
+      <div class="flex items-center space-x-2 mb-4"><i class="fas fa-coffee text-2xl" style="color: #D2691E;"></i> <span class="text-xl font-bold">Bandung Cafe Guide</span>
+      </div>
+      <p class="text-sm opacity-80" id="footer-desc">Platform terpercaya untuk menemukan cafe hits Gen Z di Bandung</p>
+     </div>
+     <div>
+      <h3 class="font-semibold mb-4" id="footer-links">Quick Links</h3>
+      <ul class="space-y-2 text-sm">
+       <li><a href="#home" class="opacity-80 hover:opacity-100 transition">Home</a></li>
+       <li><a href="#cafes" class="opacity-80 hover:opacity-100 transition">Cafes</a></li>
+       <li><a href="#gallery" class="opacity-80 hover:opacity-100 transition">Gallery</a></li>
+       <li><a href="#testimonials" class="opacity-80 hover:opacity-100 transition">Reviews</a></li>
+      </ul>
+     </div>
+     <div>
+      <h3 class="font-semibold mb-4" id="footer-contact">Kontak</h3>
+      <ul class="space-y-2 text-sm opacity-80">
+       <li><i class="fas fa-envelope mr-2"></i> info@bandungcafe.id</li>
+       <li><i class="fas fa-phone mr-2"></i> +62 812-3456-7890</li>
+       <li><i class="fas fa-map-marker-alt mr-2"></i> Bandung, Indonesia</li>
+      </ul>
+     </div>
+     <div>
+      <h3 class="font-semibold mb-4" id="footer-social">Ikuti Kami</h3>
+      <div class="flex space-x-4"><button class="w-10 h-10 rounded-full flex items-center justify-center hover:opacity-80 transition" style="background: #D2691E;"> <i class="fab fa-instagram"></i> </button> <button class="w-10 h-10 rounded-full flex items-center justify-center hover:opacity-80 transition" style="background: #D2691E;"> <i class="fab fa-facebook"></i> </button> <button class="w-10 h-10 rounded-full flex items-center justify-center hover:opacity-80 transition" style="background: #D2691E;"> <i class="fab fa-twitter"></i> </button> <button class="w-10 h-10 rounded-full flex items-center justify-center hover:opacity-80 transition" style="background: #D2691E;"> <i class="fab fa-tiktok"></i> </button>
+      </div><!-- Share Buttons -->
+      <div class="mt-4">
+       <p class="text-sm font-semibold mb-2" id="footer-share">Bagikan:</p>
+       <div class="flex space-x-2"><button class="px-3 py-1 rounded text-xs hover:opacity-80 transition" style="background: #D2691E;"> <i class="fas fa-share-alt mr-1"></i> <span id="btn-share">Share</span> </button>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="border-t border-amber-900 pt-8 text-center text-sm opacity-80">
+     <p id="footer-copyright">© 2024 Bandung Cafe Guide. All rights reserved.</p>
+    </div>
+   </div>
+  </footer><!-- Chatbot Button --> <button id="chatbot-toggle" class="fixed bottom-6 right-6 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-white text-2xl chat-bubble z-50 hover:scale-110 transition" style="background: linear-gradient(135deg, #8B4513, #D2691E);"> <i class="fas fa-comment-dots"></i> </button> <!-- Chatbot Window -->
+  <div id="chatbot-window" class="fixed bottom-24 right-6 w-80 bg-white rounded-2xl shadow-2xl hidden z-50 overflow-hidden">
+   <div class="p-4 text-white font-semibold flex justify-between items-center" style="background: linear-gradient(135deg, #8B4513, #D2691E);"><span id="chatbot-title">Chat dengan Kami</span> <button id="chatbot-close" class="hover:opacity-80 transition"> <i class="fas fa-times"></i> </button>
+   </div>
+   <div id="chatbot-messages" class="h-80 overflow-y-auto p-4 space-y-3" style="background: #FAF5EB;">
+    <div class="bg-white p-3 rounded-lg shadow text-sm">
+     <p class="font-semibold text-amber-900 mb-1">Bot</p>
+     <p class="text-amber-800" id="chatbot-greeting">Halo! Ada yang bisa saya bantu?</p>
+    </div>
+   </div>
+   <div class="p-4 border-t">
+    <div class="flex space-x-2"><input type="text" id="chatbot-input" placeholder="Ketik pesan..." class="flex-1 px-4 py-2 rounded-full border-2 border-amber-200 focus:border-amber-500 focus:outline-none text-sm"> <button id="chatbot-send" class="px-4 py-2 rounded-full text-white font-medium" style="background: #8B4513;"> <i class="fas fa-paper-plane"></i> </button>
+    </div>
+   </div>
+  </div>
+  <script>
+    // Global state
+    let currentLang = 'id';
+    let isDarkMode = false;
+    let currentTestimonialIndex = 0;
+    let selectedRating = 0;
+    let allReviews = [];
+    let cafeRecordCount = 0;
+    
+    const defaultConfig = {
+      site_title: "Bandung Cafe Guide",
+      tagline: "Temukan Cafe Hits Gen Z di Bandung",
+      hero_subtitle: "Dari Aesthetic Vibes hingga Menu Instagrammable",
+      cta_button: "Jelajahi Cafe",
+      reservation_title: "Reservasi Meja",
+      footer_text: "© 2024 Bandung Cafe Guide. All rights reserved.",
+      background_color: "#FAF5EB",
+      surface_color: "#FFFFFF",
+      text_color: "#6B4423",
+      primary_action_color: "#8B4513",
+      secondary_action_color: "#D2691E",
+      font_family: "Outfit",
+      font_size: 16
+    };
+    
+    // Cafe data with categories
+    const cafes = [
+      {
+        id: 1,
+        name: "Atmosfer Coffee",
+        category: ["aesthetic", "cozy"],
+        description: "Cafe aesthetic dengan interior minimalis dan natural lighting yang sempurna untuk foto-foto Instagram",
+        rating: 4.8,
+        location: "Jl. Riau No. 123, Bandung",
+        facilities: ["WiFi Gratis", "Cozy Interior", "Outdoor Seating", "Parkir Luas"],
+        events: ["Live Acoustic Every Friday", "Art Exhibition Monthly"],
+        icon: "☕",
+        gradient: "linear-gradient(135deg, #D2691E, #8B4513)"
+      },
+      {
+        id: 2,
+        name: "Skyline Rooftop",
+        category: ["rooftop", "instagrammable"],
+        description: "Cafe rooftop dengan pemandangan kota Bandung yang memukau, cocok untuk sunset viewing",
+        rating: 4.9,
+        location: "Jl. Dago No. 45, Bandung",
+        facilities: ["Rooftop View", "Live DJ", "Premium Coffee", "Private Dining"],
+        events: ["Sunset Sessions", "DJ Performance Weekend"],
+        icon: "🌆",
+        gradient: "linear-gradient(135deg, #CD853F, #8B4513)"
+      },
+      {
+        id: 3,
+        name: "Vintage Garden",
+        category: ["aesthetic", "instagrammable"],
+        description: "Taman vintage dengan dekorasi retro dan spot foto aesthetic yang Instagrammable banget",
+        rating: 4.7,
+        location: "Jl. Sukajadi No. 89, Bandung",
+        facilities: ["Garden Area", "Vintage Decor", "Photo Spots", "Pet Friendly"],
+        events: ["Sunday Brunch Market", "Vintage Fair Monthly"],
+        icon: "🌿",
+        gradient: "linear-gradient(135deg, #DEB887, #8B4513)"
+      },
+      {
+        id: 4,
+        name: "Jazz Corner Cafe",
+        category: ["livemusic", "cozy"],
+        description: "Cafe dengan live jazz music setiap malam, suasana cozy dan intimate untuk quality time",
+        rating: 4.6,
+        location: "Jl. Braga No. 56, Bandung",
+        facilities: ["Live Music Stage", "Acoustic System", "Bar Counter", "VIP Room"],
+        events: ["Jazz Night Daily", "Open Mic Tuesday"],
+        icon: "🎵",
+        gradient: "linear-gradient(135deg, #F4A460, #8B4513)"
+      },
+      {
+        id: 5,
+        name: "Neon Aesthetic",
+        category: ["aesthetic", "instagrammable"],
+        description: "Cafe dengan neon lights dan interior futuristic yang perfect untuk konten TikTok dan Instagram",
+        rating: 4.8,
+        location: "Jl. Cihampelas No. 234, Bandung",
+        facilities: ["Neon Decor", "Content Studio", "Fast WiFi", "Charging Stations"],
+        events: ["Content Creator Meetup", "Night Photography Session"],
+        icon: "💫",
+        gradient: "linear-gradient(135deg, #DAA520, #8B4513)"
+      },
+      {
+        id: 6,
+        name: "Chill Space",
+        category: ["cozy", "aesthetic"],
+        description: "Ruang santai dengan beanbags dan sofa nyaman, perfect untuk working space atau hangout seru",
+        rating: 4.5,
+        location: "Jl. Setiabudi No. 78, Bandung",
+        facilities: ["Working Space", "Meeting Room", "Power Outlets", "Silent Area"],
+        events: ["Startup Gathering", "Book Club Weekly"],
+        icon: "🛋️",
+        gradient: "linear-gradient(135deg, #B8860B, #8B4513)"
+      }
+    ];
+    
+    // Sample testimonials
+    const testimonials = [
+      {
+        name: "Sarah Putri",
+        cafe: "Atmosfer Coffee",
+        rating: 5,
+        text: "Tempatnya aesthetic banget! Perfect untuk foto-foto dan kopinya enak. Bakal balik lagi pasti!",
+        date: "2024-01-15"
+      },
+      {
+        name: "Dimas Arya",
+        cafe: "Skyline Rooftop",
+        rating: 5,
+        text: "View sunset di sini gak ada duanya. Romantis banget buat date night. Recommended!",
+        date: "2024-01-14"
+      },
+      {
+        name: "Rani Azzahra",
+        cafe: "Vintage Garden",
+        rating: 4,
+        text: "Spot fotonya banyak dan bagus-bagus. Menu makanannya juga enak. Worth it!",
+        date: "2024-01-13"
+      },
+      {
+        name: "Rizky Pratama",
+        cafe: "Jazz Corner Cafe",
+        rating: 5,
+        text: "Live musicnya keren banget! Suasananya cozy, cocok buat nongkrong sama temen.",
+        date: "2024-01-12"
+      },
+      {
+        name: "Alya Kamila",
+        cafe: "Neon Aesthetic",
+        rating: 5,
+        text: "Vibes-nya futuristic dan unik! Pas banget buat bikin konten TikTok.",
+        date: "2024-01-11"
+      }
+    ];
+    
+    // Translations
+    const translations = {
+      id: {
+        siteTitle: "Bandung Cafe Guide",
+        heroTagline: "Temukan Cafe Hits Gen Z di Bandung",
+        heroSubtitle: "Dari Aesthetic Vibes hingga Menu Instagrammable",
+        ctaButton: "Jelajahi Cafe",
+        searchPlaceholder: "Cari cafe favorit kamu...",
+        statCafes: "Cafe Terdaftar",
+        statReviews: "Review Pengunjung",
+        statSatisfaction: "Kepuasan (%)",
+        statEvents: "Event Bulanan",
+        filterTitle: "Filter Berdasarkan Kategori",
+        filterSubtitle: "Temukan cafe sesuai preferensi kamu",
+        cafesTitle: "Cafe Rekomendasi Kami",
+        cafesSubtitle: "Pilihan terbaik untuk nongkrong seru",
+        galleryTitle: "Galeri Foto",
+        gallerySubtitle: "Lihat suasana cafe-cafe kami",
+        testimonialsTitle: "Apa Kata Mereka",
+        testimonialsSubtitle: "Review dari pengunjung setia kami",
+        reservationTitle: "Reservasi Meja",
+        reservationSubtitle: "Pastikan tempat kamu tersedia",
+        reviewFormTitle: "Bagikan Pengalaman Kamu",
+        reviewSubtitle: "Review dan rating membantu kami berkembang",
+        footerDesc: "Platform terpercaya untuk menemukan cafe hits Gen Z di Bandung",
+        chatbotGreeting: "Halo! Ada yang bisa saya bantu?",
+        location: "Lokasi",
+        facilities: "Fasilitas",
+        events: "Event",
+        viewDetails: "Lihat Detail",
+        rating: "Rating",
+        labelName: "Nama Lengkap",
+        labelEmail: "Email",
+        labelPhone: "Nomor Telepon",
+        labelDate: "Tanggal",
+        labelTime: "Waktu",
+        labelCafe: "Pilih Cafe",
+        labelGuests: "Jumlah Tamu",
+        labelNotes: "Catatan Khusus (Opsional)",
+        btnReserve: "Kirim Reservasi",
+        labelReviewCafe: "Cafe yang Dikunjungi",
+        labelReviewName: "Nama Kamu",
+        labelReviewEmail: "Email",
+        labelRating: "Rating",
+        labelReview: "Review Kamu",
+        btnSubmitReview: "Kirim Review",
+        footerLinks: "Quick Links",
+        footerContact: "Kontak",
+        footerSocial: "Ikuti Kami",
+        footerShare: "Bagikan:",
+        btnShare: "Share",
+        footerCopyright: "© 2024 Bandung Cafe Guide. All rights reserved.",
+        chatbotTitle: "Chat dengan Kami"
+      },
+      en: {
+        siteTitle: "Bandung Cafe Guide",
+        heroTagline: "Discover Gen Z's Favorite Cafes in Bandung",
+        heroSubtitle: "From Aesthetic Vibes to Instagrammable Menus",
+        ctaButton: "Explore Cafes",
+        searchPlaceholder: "Search your favorite cafe...",
+        statCafes: "Registered Cafes",
+        statReviews: "Visitor Reviews",
+        statSatisfaction: "Satisfaction (%)",
+        statEvents: "Monthly Events",
+        filterTitle: "Filter by Category",
+        filterSubtitle: "Find cafes that match your preferences",
+        cafesTitle: "Our Recommended Cafes",
+        cafesSubtitle: "Best choices for hanging out",
+        galleryTitle: "Photo Gallery",
+        gallerySubtitle: "See the atmosphere of our cafes",
+        testimonialsTitle: "What They Say",
+        testimonialsSubtitle: "Reviews from our loyal visitors",
+        reservationTitle: "Table Reservation",
+        reservationSubtitle: "Secure your spot",
+        reviewFormTitle: "Share Your Experience",
+        reviewSubtitle: "Reviews and ratings help us grow",
+        footerDesc: "Trusted platform to discover Gen Z's favorite cafes in Bandung",
+        chatbotGreeting: "Hello! How can I help you?",
+        location: "Location",
+        facilities: "Facilities",
+        events: "Events",
+        viewDetails: "View Details",
+        rating: "Rating",
+        labelName: "Full Name",
+        labelEmail: "Email",
+        labelPhone: "Phone Number",
+        labelDate: "Date",
+        labelTime: "Time",
+        labelCafe: "Select Cafe",
+        labelGuests: "Number of Guests",
+        labelNotes: "Special Notes (Optional)",
+        btnReserve: "Submit Reservation",
+        labelReviewCafe: "Visited Cafe",
+        labelReviewName: "Your Name",
+        labelReviewEmail: "Email",
+        labelRating: "Rating",
+        labelReview: "Your Review",
+        btnSubmitReview: "Submit Review",
+        footerLinks: "Quick Links",
+        footerContact: "Contact",
+        footerSocial: "Follow Us",
+        footerShare: "Share:",
+        btnShare: "Share",
+        footerCopyright: "© 2024 Bandung Cafe Guide. All rights reserved.",
+        chatbotTitle: "Chat with Us"
+      }
+    };
+    
+    // Data SDK Handler
+    const dataHandler = {
+      onDataChanged(data) {
+        allReviews = data.filter(record => record.type === 'review');
+        cafeRecordCount = data.filter(record => record.type === 'reservation').length;
+        
+        if (allReviews.length > 0) {
+          renderTestimonialCarousel();
+        }
+      }
+    };
+    
+    // Initialize SDKs
+    async function initializeApp() {
+      if (window.dataSdk) {
+        const initResult = await window.dataSdk.init(dataHandler);
+        if (!initResult.isOk) {
+          console.error("Failed to initialize data SDK");
+        }
+      }
+      
+      if (window.elementSdk) {
+        await window.elementSdk.init({
+          defaultConfig,
+          onConfigChange: async (config) => {
+            const siteTitle = config.site_title || defaultConfig.site_title;
+            const tagline = config.tagline || defaultConfig.tagline;
+            const heroSubtitle = config.hero_subtitle || defaultConfig.hero_subtitle;
+            const ctaButton = config.cta_button || defaultConfig.cta_button;
+            const reservationTitle = config.reservation_title || defaultConfig.reservation_title;
+            const footerText = config.footer_text || defaultConfig.footer_text;
+            
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const surfaceColor = config.surface_color || defaultConfig.surface_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+            const secondaryActionColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+            
+            const fontFamily = config.font_family || defaultConfig.font_family;
+            const fontSize = config.font_size || defaultConfig.font_size;
+            
+            document.getElementById('site-title').textContent = siteTitle;
+            document.getElementById('hero-tagline').textContent = tagline;
+            document.getElementById('hero-subtitle').textContent = heroSubtitle;
+            document.getElementById('cta-button').textContent = ctaButton;
+            document.getElementById('reservation-form-title').textContent = reservationTitle;
+            document.getElementById('footer-copyright').textContent = footerText;
+            
+            document.body.style.backgroundColor = backgroundColor;
+            document.querySelectorAll('.card, .bg-white').forEach(el => {
+              el.style.backgroundColor = surfaceColor;
+            });
+            document.querySelectorAll('.text-amber-900, .text-amber-800').forEach(el => {
+              el.style.color = textColor;
+            });
+            
+            document.querySelectorAll('button[style*="background"]').forEach(btn => {
+              if (btn.classList.contains('filter-btn') && !btn.classList.contains('active')) {
+                return;
+              }
+              btn.style.background = `linear-gradient(135deg, ${primaryActionColor}, ${secondaryActionColor})`;
+            });
+            
+            document.body.style.fontFamily = `${fontFamily}, ${defaultConfig.font_family}, sans-serif`;
+            document.querySelectorAll('h1').forEach(el => {
+              el.style.fontSize = `${fontSize * 2.5}px`;
+            });
+            document.querySelectorAll('h2').forEach(el => {
+              el.style.fontSize = `${fontSize * 2}px`;
+            });
+            document.querySelectorAll('h3').forEach(el => {
+              el.style.fontSize = `${fontSize * 1.5}px`;
+            });
+            document.querySelectorAll('p, span, a, button, input, textarea, select').forEach(el => {
+              if (!el.closest('h1, h2, h3')) {
+                el.style.fontSize = `${fontSize}px`;
+              }
+            });
+          },
+          mapToCapabilities: (config) => ({
+            recolorables: [
+              {
+                get: () => config.background_color || defaultConfig.background_color,
+                set: (value) => {
+                  config.background_color = value;
+                  if (window.elementSdk) {
+                    window.elementSdk.setConfig({ background_color: value });
+                  }
+                }
+              },
+              {
+                get: () => config.surface_color || defaultConfig.surface_color,
+                set: (value) => {
+                  config.surface_color = value;
+                  if (window.elementSdk) {
+                    window.elementSdk.setConfig({ surface_color: value });
+                  }
+                }
+              },
+              {
+                get: () => config.text_color || defaultConfig.text_color,
+                set: (value) => {
+                  config.text_color = value;
+                  if (window.elementSdk) {
+                    window.elementSdk.setConfig({ text_color: value });
+                  }
+                }
+              },
+              {
+                get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                set: (value) => {
+                  config.primary_action_color = value;
+                  if (window.elementSdk) {
+                    window.elementSdk.setConfig({ primary_action_color: value });
+                  }
+                }
+              },
+              {
+                get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                set: (value) => {
+                  config.secondary_action_color = value;
+                  if (window.elementSdk) {
+                    window.elementSdk.setConfig({ secondary_action_color: value });
+                  }
+                }
+              }
+            ],
+            borderables: [],
+            fontEditable: {
+              get: () => config.font_family || defaultConfig.font_family,
+              set: (value) => {
+                config.font_family = value;
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ font_family: value });
+                }
+              }
+            },
+            fontSizeable: {
+              get: () => config.font_size || defaultConfig.font_size,
+              set: (value) => {
+                config.font_size = value;
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ font_size: value });
+                }
+              }
+            }
+          }),
+          mapToEditPanelValues: (config) => new Map([
+            ["site_title", config.site_title || defaultConfig.site_title],
+            ["tagline", config.tagline || defaultConfig.tagline],
+            ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+            ["cta_button", config.cta_button || defaultConfig.cta_button],
+            ["reservation_title", config.reservation_title || defaultConfig.reservation_title],
+            ["footer_text", config.footer_text || defaultConfig.footer_text]
+          ])
+        });
+      }
+      
+      renderCafes();
+      renderTestimonialCarousel();
+      populateCafeSelects();
+      setupEventListeners();
+      animateCounters();
+      observeElements();
+    }
+    
+    // Render cafe cards
+    function renderCafes(filterCategory = 'all') {
+      const grid = document.getElementById('cafe-grid');
+      grid.innerHTML = '';
+      
+      const filteredCafes = filterCategory === 'all' 
+        ? cafes 
+        : cafes.filter(cafe => cafe.category.includes(filterCategory));
+      
+      filteredCafes.forEach(cafe => {
+        const card = document.createElement('div');
+        card.className = 'card fade-in bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300';
+        card.innerHTML = `
+          <div class="h-48 flex items-center justify-center text-6xl" style="background: ${cafe.gradient};">
+            ${cafe.icon}
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-bold text-amber-900">${cafe.name}</h3>
+              <div class="flex items-center space-x-1">
+                <i class="fas fa-star text-yellow-500"></i>
+                <span class="font-semibold text-amber-900">${cafe.rating}</span>
+              </div>
+            </div>
+            <p class="text-sm text-amber-800 mb-4">${cafe.description}</p>
+            <div class="mb-3">
+              <p class="text-xs font-semibold text-amber-900 mb-1">
+                <i class="fas fa-map-marker-alt mr-1"></i>
+                <span id="loc-${cafe.id}">${currentLang === 'id' ? 'Lokasi' : 'Location'}</span>
+              </p>
+              <p class="text-xs text-amber-800">${cafe.location}</p>
+            </div>
+            <div class="mb-3">
+              <p class="text-xs font-semibold text-amber-900 mb-1">
+                <i class="fas fa-check-circle mr-1"></i>
+                <span id="fac-${cafe.id}">${currentLang === 'id' ? 'Fasilitas' : 'Facilities'}</span>
+              </p>
+              <div class="flex flex-wrap gap-1">
+                ${cafe.facilities.slice(0, 3).map(f => `<span class="text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-900">${f}</span>`).join('')}
+              </div>
+            </div>
+            <button class="w-full mt-4 py-2 rounded-lg text-white font-medium hover:shadow-lg transition" style="background: linear-gradient(135deg, #8B4513, #D2691E);">
+              <span id="view-${cafe.id}">${currentLang === 'id' ? 'Lihat Detail' : 'View Details'}</span>
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+    
+    // Render testimonial carousel
+    function renderTestimonialCarousel() {
+      const carousel = document.getElementById('testimonial-carousel');
+      const dots = document.getElementById('carousel-dots');
+      
+      const testimonialsToShow = allReviews.length > 0 ? allReviews : testimonials;
+      
+      if (testimonialsToShow.length === 0) return;
+      
+      const current = testimonialsToShow[currentTestimonialIndex];
+      
+      carousel.innerHTML = `
+        <div class="bg-white rounded-2xl shadow-xl p-8 text-center">
+          <div class="flex justify-center mb-4">
+            ${Array(5).fill(0).map((_, i) => `
+              <i class="fas fa-star ${i < (current.rating || 5) ? 'text-yellow-500' : 'text-gray-300'}"></i>
+            `).join('')}
+          </div>
+          <p class="text-lg text-amber-900 mb-6 italic">"${current.text || current.review}"</p>
+          <div class="flex items-center justify-center space-x-3">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-xl" style="background: linear-gradient(135deg, #8B4513, #D2691E); color: white;">
+              ${(current.name || current.visitor_name).charAt(0).toUpperCase()}
+            </div>
+            <div class="text-left">
+              <p class="font-semibold text-amber-900">${current.name || current.visitor_name}</p>
+              <p class="text-sm text-amber-800">${current.cafe || current.cafe_name}</p>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      dots.innerHTML = testimonialsToShow.map((_, i) => `
+        <button class="w-3 h-3 rounded-full transition ${i === currentTestimonialIndex ? 'w-8' : ''}" 
+                style="background: ${i === currentTestimonialIndex ? '#8B4513' : '#D2B48C'};"
+                onclick="goToTestimonial(${i})">
+        </button>
+      `).join('');
+    }
+    
+    window.goToTestimonial = function(index) {
+      const testimonialsToShow = allReviews.length > 0 ? allReviews : testimonials;
+      currentTestimonialIndex = index;
+      renderTestimonialCarousel();
+    };
+    
+    // Populate cafe selects
+    function populateCafeSelects() {
+      const resCafe = document.getElementById('res-cafe');
+      const reviewCafe = document.getElementById('review-cafe');
+      
+      cafes.forEach(cafe => {
+        const option1 = document.createElement('option');
+        option1.value = cafe.name;
+        option1.textContent = cafe.name;
+        resCafe.appendChild(option1);
+        
+        const option2 = document.createElement('option');
+        option2.value = cafe.name;
+        option2.textContent = cafe.name;
+        reviewCafe.appendChild(option2);
+      });
+    }
+    
+    // Animate counters
+    function animateCounters() {
+      const counters = document.querySelectorAll('.counter-animation');
+      
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            counter.textContent = Math.floor(current);
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target;
+          }
+        };
+        
+        updateCounter();
+      });
+    }
+    
+    // Intersection Observer for fade-in animations
+    function observeElements() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }
+    
+    // Setup event listeners
+    function setupEventListeners() {
+      // Dark mode toggle
+      document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+        isDarkMode = !isDarkMode;
+        document.body.classList.toggle('dark-mode');
+        const icon = document.querySelector('#dark-mode-toggle i');
+        icon.className = isDarkMode ? 'fas fa-sun text-yellow-400' : 'fas fa-moon text-amber-700';
+      });
+      
+      // Language toggle
+      document.getElementById('lang-toggle').addEventListener('click', () => {
+        currentLang = currentLang === 'id' ? 'en' : 'id';
+        document.getElementById('lang-text').textContent = currentLang.toUpperCase();
+        updateLanguage();
+      });
+      
+      // Mobile menu
+      document.getElementById('mobile-menu').addEventListener('click', () => {
+        const menu = document.getElementById('mobile-menu-content');
+        menu.classList.toggle('hidden');
+      });
+      
+      // Filter buttons
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => {
+            b.classList.remove('active');
+            b.style.background = 'white';
+            b.style.color = '#6B4423';
+          });
+          btn.classList.add('active');
+          btn.style.background = '#8B4513';
+          btn.style.color = 'white';
+          
+          const category = btn.getAttribute('data-category');
+          renderCafes(category);
+          observeElements();
+        });
+      });
+      
+      // Search functionality
+      document.getElementById('search-input').addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const filtered = cafes.filter(cafe => 
+          cafe.name.toLowerCase().includes(searchTerm) ||
+          cafe.description.toLowerCase().includes(searchTerm)
+        );
+        
+        const grid = document.getElementById('cafe-grid');
+        grid.innerHTML = '';
+        
+        filtered.forEach(cafe => {
+          const card = document.createElement('div');
+          card.className = 'card fade-in bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300';
+          card.innerHTML = `
+            <div class="h-48 flex items-center justify-center text-6xl" style="background: ${cafe.gradient};">
+              ${cafe.icon}
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-xl font-bold text-amber-900">${cafe.name}</h3>
+                <div class="flex items-center space-x-1">
+                  <i class="fas fa-star text-yellow-500"></i>
+                  <span class="font-semibold text-amber-900">${cafe.rating}</span>
+                </div>
+              </div>
+              <p class="text-sm text-amber-800 mb-4">${cafe.description}</p>
+              <div class="mb-3">
+                <p class="text-xs font-semibold text-amber-900 mb-1">
+                  <i class="fas fa-map-marker-alt mr-1"></i>
+                  ${currentLang === 'id' ? 'Lokasi' : 'Location'}
+                </p>
+                <p class="text-xs text-amber-800">${cafe.location}</p>
+              </div>
+              <button class="w-full mt-4 py-2 rounded-lg text-white font-medium hover:shadow-lg transition" style="background: linear-gradient(135deg, #8B4513, #D2691E);">
+                ${currentLang === 'id' ? 'Lihat Detail' : 'View Details'}
+              </button>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+        
+        observeElements();
+      });
+      
+      // Rating stars
+      document.querySelectorAll('.rating-star').forEach(star => {
+        star.addEventListener('click', () => {
+          const rating = parseInt(star.getAttribute('data-rating'));
+          selectedRating = rating;
+          document.getElementById('rating-value').value = rating;
+          
+          document.querySelectorAll('.rating-star').forEach((s, i) => {
+            if (i < rating) {
+              s.style.color = '#EAB308';
+            } else {
+              s.style.color = '#D1D5DB';
+            }
+          });
+        });
+      });
+      
+      // Reservation form
+      document.getElementById('reservation-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        if (cafeRecordCount >= 999) {
+          showMessage('reservation-message', currentLang === 'id' ? 'Maaf, batas maksimal 999 reservasi telah tercapai. Silakan hubungi kami langsung.' : 'Sorry, maximum limit of 999 reservations reached. Please contact us directly.', 'error');
+          return;
+        }
+        
+        const btn = e.target.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Mengirim...';
+        
+        const formData = {
+          type: 'reservation',
+          visitor_name: document.getElementById('res-name').value,
+          email: document.getElementById('res-email').value,
+          phone: document.getElementById('res-phone').value,
+          date: document.getElementById('res-date').value,
+          time: document.getElementById('res-time').value,
+          cafe_name: document.getElementById('res-cafe').value,
+          guests: parseInt(document.getElementById('res-guests').value),
+          notes: document.getElementById('res-notes').value,
+          timestamp: new Date().toISOString()
+        };
+        
+        if (window.dataSdk) {
+          const result = await window.dataSdk.create(formData);
+          
+          if (result.isOk) {
+            showMessage('reservation-message', currentLang === 'id' ? 'Reservasi berhasil dikirim! Kami akan menghubungi Anda segera.' : 'Reservation sent successfully! We will contact you soon.', 'success');
+            e.target.reset();
+            cafeRecordCount++;
+          } else {
+            showMessage('reservation-message', currentLang === 'id' ? 'Gagal mengirim reservasi. Silakan coba lagi.' : 'Failed to send reservation. Please try again.', 'error');
+          }
+        }
+        
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      });
+      
+      // Review form
+      document.getElementById('review-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        if (!selectedRating) {
+          showMessage('review-message', currentLang === 'id' ? 'Silakan pilih rating terlebih dahulu' : 'Please select a rating first', 'error');
+          return;
+        }
+        
+        if (allReviews.length >= 999) {
+          showMessage('review-message', currentLang === 'id' ? 'Maaf, batas maksimal 999 review telah tercapai.' : 'Sorry, maximum limit of 999 reviews reached.', 'error');
+          return;
+        }
+        
+        const btn = document.getElementById('review-submit-btn');
+        const originalText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Mengirim...';
+        
+        const formData = {
+          type: 'review',
+          cafe_name: document.getElementById('review-cafe').value,
+          visitor_name: document.getElementById('review-name').value,
+          email: document.getElementById('review-email').value,
+          rating: selectedRating,
+          review: document.getElementById('review-text').value,
+          timestamp: new Date().toISOString()
+        };
+        
+        if (window.dataSdk) {
+          const result = await window.dataSdk.create(formData);
+          
+          if (result.isOk) {
+            showMessage('review-message', currentLang === 'id' ? 'Terima kasih atas review Anda!' : 'Thank you for your review!', 'success');
+            e.target.reset();
+            selectedRating = 0;
+            document.querySelectorAll('.rating-star').forEach(s => {
+              s.style.color = '#D1D5DB';
+            });
+          } else {
+            showMessage('review-message', currentLang === 'id' ? 'Gagal mengirim review. Silakan coba lagi.' : 'Failed to send review. Please try again.', 'error');
+          }
+        }
+        
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      });
+      
+      // Chatbot
+      document.getElementById('chatbot-toggle').addEventListener('click', () => {
+        document.getElementById('chatbot-window').classList.toggle('hidden');
+      });
+      
+      document.getElementById('chatbot-close').addEventListener('click', () => {
+        document.getElementById('chatbot-window').classList.add('hidden');
+      });
+      
+      document.getElementById('chatbot-send').addEventListener('click', sendChatMessage);
+      document.getElementById('chatbot-input').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendChatMessage();
+      });
+      
+      // Testimonial auto-carousel
+      setInterval(() => {
+        const testimonialsToShow = allReviews.length > 0 ? allReviews : testimonials;
+        currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialsToShow.length;
+        renderTestimonialCarousel();
+      }, 5000);
+      
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    }
+    
+    // Update language
+    function updateLanguage() {
+      const t = translations[currentLang];
+      
+      document.getElementById('site-title').textContent = t.siteTitle;
+      document.getElementById('hero-tagline').textContent = t.heroTagline;
+      document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
+      document.getElementById('cta-button').textContent = t.ctaButton;
+      document.getElementById('search-input').placeholder = t.searchPlaceholder;
+      
+      document.getElementById('stat-cafes').textContent = t.statCafes;
+      document.getElementById('stat-reviews').textContent = t.statReviews;
+      document.getElementById('stat-satisfaction').textContent = t.statSatisfaction;
+      document.getElementById('stat-events').textContent = t.statEvents;
+      
+      document.getElementById('filter-title').textContent = t.filterTitle;
+      document.getElementById('filter-subtitle').textContent = t.filterSubtitle;
+      
+      document.getElementById('cafes-title').textContent = t.cafesTitle;
+      document.getElementById('cafes-subtitle').textContent = t.cafesSubtitle;
+      
+      document.getElementById('gallery-title').textContent = t.galleryTitle;
+      document.getElementById('gallery-subtitle').textContent = t.gallerySubtitle;
+      
+      document.getElementById('testimonials-title').textContent = t.testimonialsTitle;
+      document.getElementById('testimonials-subtitle').textContent = t.testimonialsSubtitle;
+      
+      document.getElementById('reservation-form-title').textContent = t.reservationTitle;
+      document.getElementById('reservation-subtitle').textContent = t.reservationSubtitle;
+      
+      document.getElementById('review-form-title').textContent = t.reviewFormTitle;
+      document.getElementById('review-subtitle').textContent = t.reviewSubtitle;
+      
+      document.getElementById('label-name').textContent = t.labelName;
+      document.getElementById('label-email').textContent = t.labelEmail;
+      document.getElementById('label-phone').textContent = t.labelPhone;
+      document.getElementById('label-date').textContent = t.labelDate;
+      document.getElementById('label-time').textContent = t.labelTime;
+      document.getElementById('label-cafe').textContent = t.labelCafe;
+      document.getElementById('label-guests').textContent = t.labelGuests;
+      document.getElementById('label-notes').textContent = t.labelNotes;
+      document.getElementById('btn-reserve').textContent = t.btnReserve;
+      
+      document.getElementById('label-review-cafe').textContent = t.labelReviewCafe;
+      document.getElementById('label-review-name').textContent = t.labelReviewName;
+      document.getElementById('label-review-email').textContent = t.labelReviewEmail;
+      document.getElementById('label-rating').textContent = t.labelRating;
+      document.getElementById('label-review').textContent = t.labelReview;
+      document.getElementById('btn-submit-review').textContent = t.btnSubmitReview;
+      
+      document.getElementById('footer-desc').textContent = t.footerDesc;
+      document.getElementById('footer-links').textContent = t.footerLinks;
+      document.getElementById('footer-contact').textContent = t.footerContact;
+      document.getElementById('footer-social').textContent = t.footerSocial;
+      document.getElementById('footer-share').textContent = t.footerShare;
+      document.getElementById('btn-share').textContent = t.btnShare;
+      document.getElementById('footer-copyright').textContent = t.footerCopyright;
+      
+      document.getElementById('chatbot-title').textContent = t.chatbotTitle;
+      document.getElementById('chatbot-greeting').textContent = t.chatbotGreeting;
+      
+      renderCafes();
+      observeElements();
+    }
+    
+    // Show message
+    function showMessage(elementId, message, type) {
+      const msgEl = document.getElementById(elementId);
+      msgEl.textContent = message;
+      msgEl.className = `text-center p-4 rounded-lg ${type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+      msgEl.classList.remove('hidden');
+      
+      setTimeout(() => {
+        msgEl.classList.add('hidden');
+      }, 5000);
+    }
+    
+    // Send chat message
+    function sendChatMessage() {
+      const input = document.getElementById('chatbot-input');
+      const message = input.value.trim();
+      
+      if (!message) return;
+      
+      const messagesContainer = document.getElementById('chatbot-messages');
+      
+      const userMsg = document.createElement('div');
+      userMsg.className = 'bg-amber-100 p-3 rounded-lg shadow text-sm ml-auto max-w-xs';
+      userMsg.innerHTML = `
+        <p class="font-semibold text-amber-900 mb-1">${currentLang === 'id' ? 'Kamu' : 'You'}</p>
+        <p class="text-amber-800">${message}</p>
+      `;
+      messagesContainer.appendChild(userMsg);
+      
+      setTimeout(() => {
+        const botMsg = document.createElement('div');
+        botMsg.className = 'bg-white p-3 rounded-lg shadow text-sm max-w-xs';
+        botMsg.innerHTML = `
+          <p class="font-semibold text-amber-900 mb-1">Bot</p>
+          <p class="text-amber-800">${currentLang === 'id' ? 'Terima kasih atas pesan Anda! Tim kami akan segera merespon.' : 'Thank you for your message! Our team will respond shortly.'}</p>
+        `;
+        messagesContainer.appendChild(botMsg);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }, 1000);
+      
+      input.value = '';
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+    
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', initializeApp);
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a18514e2400243f',t:'MTc2MzY0NTU5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
